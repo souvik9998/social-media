@@ -16,8 +16,11 @@ const UserSchema = new mongoose.Schema(
     },
     email: {
       type: String,
-      required: true,
       max: 50,
+      unique: true,
+    },
+    mobileNumber:{
+      type: String,
       unique: true,
     },
     password: {
@@ -25,18 +28,15 @@ const UserSchema = new mongoose.Schema(
       required: true,
       min: 5,
     },
-    picturePath: {
-      type: String,
-      default: "",
+    profilePicture: {
+      data:Buffer,
+      contentType:String
     },
     friends: {
       type: Array,
       default: [],
     },
     location: String,
-    occupation: String,
-    viewedProfile: Number,
-    impressions: Number,
   },
   { timestamps: true }
 );
