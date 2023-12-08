@@ -15,3 +15,9 @@ html {
     -webkit-box-shadow: 1px 4px 14px 2px rgba(203,203,203,0.75);
     -moz-box-shadow: 1px 4px 14px 2px rgba(203,203,203,0.75);
 }
+::-webkit-scrollbar{
+    display: none;
+  }
+  body {
+    user-select: none;
+  }

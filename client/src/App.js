@@ -19,10 +19,10 @@ function App() {
           <Route path='/' element={<Timeline/>}/>
           <Route path='/notification' element={<Notfication/>}/>
         </Route>
-        <Route path='/messages' element={<Messages/>}/> 
         <Route path='/login' element ={<Login />}/>
         <Route path='/register' element ={<Register />}/>
       </Route>
+      <Route path='/messages' element={<Messages/>}/> 
       <Route path='/test' element ={<Test />}/>
     </Routes>
     </BrowserRouter>

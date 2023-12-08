@@ -1,8 +1,10 @@
 import React from 'react'
 import profileImage from '../assets/profileImage.avif'
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 const Header = () => {
   const [dropdown,setDropdown] = useState(false);
+  const navigate = useNavigate();
   const toogleDropdown = () =>{
     setDropdown(true)
   }
@@ -30,18 +32,31 @@ const Header = () => {
           
           <div 
           
-          className='w-[28%] justify-end flex gap-6'>
-            <div className='bg-[#5A30FF] flex items-center h-12 px-5 w-fit text-white rounded-[50px] border-[1px] border-[#ACACAC]'>Create</div>
+          className='w-[28%] justify-end flex gap-6 items-center'>
+            
             <div
+            className='bg-[#5A30FF] flex items-center h-12 px-5 w-fit text-white rounded-[50px] border-[1px] border-[#ACACAC]'>Create</div>
+            <div 
+            onClick={()=>navigate("/notification")}
+            className='cursor-pointer w-12 h-12 rounded-full bg-[#5A30FF] flex items-center justify-center relative'>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" class="w-6 h-6">
+              <path fill-rule="evenodd" d="M5.25 9a6.75 6.75 0 0113.5 0v.75c0 2.123.8 4.057 2.118 5.52a.75.75 0 01-.297 1.206c-1.544.57-3.16.99-4.831 1.243a3.75 3.75 0 11-7.48 0 24.585 24.585 0 01-4.831-1.244.75.75 0 01-.298-1.205A8.217 8.217 0 005.25 9.75V9zm4.502 8.9a2.25 2.25 0 104.496 0 25.057 25.057 0 01-4.496 0z" clip-rule="evenodd" />
+            </svg>
+            <div 
+            
+            className='w-5 h-5 absolute -right-1 -top-1 flex items-center justify-center text-white font-medium text-sm rounded-full bg-red-600'>4</div>
+            </div>
+            <div
+            
             onMouseEnter={toogleDropdown}
             onMouseLeave={leaveDropdown}
             className='relative'
             >
-              <img className='w-12 h-12 rounded-full object-cover' src={profileImage}></img>
+              <img className='cursor-pointer w-12 h-12 rounded-full object-cover' src={profileImage}></img>
               {dropdown&&
               <div className='h-fit w-80 absolute -right-6 top-12 p-2'>
                 <div 
-                className='px-[6px] rounded-[35px] h-fit w-full border border-gray-200 bg-white'>
+                className='cursor-pointer px-[6px] rounded-[35px] h-fit w-full border border-gray-200 bg-white'>
                   <div className='py-4 pl-6 flex items-center gap-3'>
                     <div><img className='w-10 h-10 rounded-full object-cover' src={profileImage}></img></div>
                     <div><div className='text-[#4A4A4A] font-semibold'>Souvik Das</div>
